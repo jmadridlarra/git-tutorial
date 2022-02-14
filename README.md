@@ -48,12 +48,15 @@ Similar to the way a tree branch breaks off from the trunk, a branch is a new wo
 
 ![Screenshot of git BASH showing 'git branch' command](/tutorial%20images/git%20branch.jpg)
 
-2) In order to switch between branches, use `git checkout BRANCH_NAME`.  Use the *checkout* command to switch to your new branch.  
+2) In order to switch between branches, use `git checkout BRANCH_NAME`.  
 
 NOTE: It is important to remember that `git branch NEW_BRANCH_NAME` only creates the branch, it doesn't switch to it.  In order to create and switch to a new branch all in one line use `git checkout -b NEW_BRANCH_NAME`
 
-3) You should now notice that the branch name (shown in parantheses after the path) has changed. Now you can make as many commits as you would like in this new branch, without affecting the main branch. Make a change in *hello.txt* and commit it. (`git add PATHNAME` `git commit -m 'COMMIT MESSAGE'`)
-4) Now, use `git checkout main` to return to the main branch. 
+3) Use the *checkout* command to switch to your new branch.  
+4) You should now notice that the branch name (shown in parantheses after the path) has changed. Now you can make as many commits as you would like in this new branch, without affecting the main branch. Make a change in *hello.txt* and commit it. (`git add PATHNAME` `git commit -m 'COMMIT MESSAGE'`)
+5) Now, use `git checkout main` to return to the main branch. 
+
+NOTE: Git will not allow you change branches if there are changed files in your working directory. In order to get around this, you must either commit your changes using the above steps, OR, use `git stash`.  The 'stash' command allows you to 'stash' your changes away in order to clear the working tree.  These changes are placed into a 'bucket' of sorts so that they are removed from the working tree, but still retrievable.  After stashing changes, you can switch branches, but when you return to the branch with the stash, don't forget to unstash your changes using `git stash pop`!  If you forget to unstash your changes, they might be lost forever!! Stashed changes are visible on the git log under 'WIP on BRANCH_NAME'
 
 So now we've made a branch and made some changes to the branch...now what?  Typically projects like to have a tested, working version of their code separate from the fixes and new features they are creating.  These fixes and new features are usually developed in other branches with a naming scheme that has to do with the feature being developed. The 'main' branch is typically a working version of the project.  So how are new features and updates integrated? The `merge` command automatically integrates one branch into another.  
 
