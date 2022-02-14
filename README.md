@@ -29,7 +29,7 @@ Helful tips: `-a` adds all changed files to the staging area. Specifying a folde
 
 8) Now we are ready to create our commit.  Use `git commit` to commit the files.  This should automatically open a text editor and prompt you for a commit message.  The commit message is a brief description of the changes of the files in the staging area.  In other GUI git softwares, users can add descriptions which can be longer, but it is best to keep commit messages brief.  This commit will create a unique ID called the commit SHA-1 checksum.  This allows users to identify specific commits and return back to them. In order to see a list of all commits and their SHA-1 checksums use `git log`. 
 
-Helpful tips: `-m 'COMMIT MESSAGE'` allows a user to type a commit message in the CLI rather than opening an external editor.  
+Helpful tips: `git commit -m 'COMMIT MESSAGE'` allows a user to type a commit message in the CLI rather than opening an external editor.  
 
 It is important to commit files any time you might want to revert something.  A good rule of thumb is creating a commit every time a new feature is added or changed.  That way, if something gets broken during this change, it is easy to revert back to an older commit prior to the broken commit. 
 
@@ -49,5 +49,5 @@ So now we've made a branch and made some changes to the branch...now what?  Typi
 
 5) Currently, you should be in the **main** branch. By typing `git merge BRANCH_NAME`, you are merging the BRANCH_NAME branch **INTO** the *main* branch. After this merge, the main branch will contain all original changes and any updates from the BRANCH_NAME branch. 
 
-If there is a problem with automatic merging, git will complain and let you know that there is a 'merge conflict'.  Then, git will edit the file to display both versions of the code that is causing the merge conflict. 
+If there is a problem with automatic merging, git will complain and let you know that there is a 'merge conflict'.  Then, git will edit the file to display both versions of the code that is causing the merge conflict, one right after the other delineated by the 'HEAD>>>>>>' and 'SHA-1 checksum <<<<<<<<<<'.  This process interupts the merge and asks the user to check the files that are causing the merge conflict and actively choose what code to keep.  Then, after the user has checked all the files that have a merge confict, they commit ALL changed files just like usual into the new branch to complete the merge. 
 
