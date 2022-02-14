@@ -19,11 +19,18 @@ NOTE: all commands using git in terminal will be proceeded by 'git'.
 `clone` makes a local copy of the git-tutorial and downloads it to your machine.  This effectively creates your *local distribution*. In order to push changes from your local distribution to the remote host, use `git push origin BRANCHNAME`.  Then, to pull changes from the remote repository use `git pull origin BRANCHNAME`. 
 
 5) Now that you have cloned a distribution, type `git status`.  This command shows all the changes you have made.  Since this is a new distribution and we have not made any changes, the status command should not show any files. 
+
+![git status screenshot](tutorial%20images/git%20status.jpg)
+
 6) Open the `hello.txt` file using the text editor of your choice. Then, change the text...however you want! Save the file and navigate back to your command prompt. Now, type `git status` again.  If you are using git bash, the file path of `hello.txt` should now be red. For all CLIs your file path will now show up under 'changes not staged for commit'. 
+
+![git status after changing hello.txt screenshot](tutorial%20images/git%20status%20not%20added.jpg)
 
 Much like clicking save, creating a commit creates a checkpoint for the user to revert back to.  
 
 7) Prior to creating a commit however, you must add your file to the *staging area*. The staging area acts as a collection space for you to collect all the files you would like to include in your commit. In order to add files to the staging area use the `git add PATHNAME` command. Now, type `git status` again.  The file that you added will now turn green (if you're using git BASH) and will show up under the 'changes to be committed' section. You can add as many files as you would like to the staging area to be included in the commit. 
+
+![Adding hello.txt to the staging area screenshot](tutorial%20images/git%20status%20add.jpg)
 
 Helful tips: `-a` adds all changed files to the staging area. Specifying a folder as a PATHNAME adds all *changed* files in the folder to the staging area.
 
@@ -38,9 +45,12 @@ It is important to commit files any time you might want to revert something.  A 
 Similar to the way a tree branch breaks off from the trunk, a branch is a new working space based off of the old branch.  Any time you make a new branch it has all of the changes from the old branch, but if you make changes to the new branch, it will not change the old branch. 
 
 1) Use `git branch BRANCH_NAME` to create a new branch titled anything you want.  Then, type `git branch` to see all the branches that exist on your local machine.  
+
+![Screenshot of git BASH showing 'git branch' command](/tutorial%20images/git%20branch.jpg)
+
 2) In order to switch between branches, use `git checkout BRANCH_NAME`.  Use the *checkout* command to switch to your new branch.  
 
-NOTE: It is important to remember that `git branch` only creates the branch, it doesn't switch to it.  In order to create and switch to a new branch all in one line use `git checkout -b NEW_BRANCH_NAME`
+NOTE: It is important to remember that `git branch NEW_BRANCH_NAME` only creates the branch, it doesn't switch to it.  In order to create and switch to a new branch all in one line use `git checkout -b NEW_BRANCH_NAME`
 
 3) You should now notice that the branch name (shown in parantheses after the path) has changed. Now you can make as many commits as you would like in this new branch, without affecting the main branch. Make a change in *hello.txt* and commit it. (`git add PATHNAME` `git commit -m 'COMMIT MESSAGE'`)
 4) Now, use `git checkout main` to return to the main branch. 
